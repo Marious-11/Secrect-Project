@@ -2,3 +2,7 @@
 @tailwind components;
 @tailwind utilities;
   
+
+.my-wipper{
+    z-index: 50;
+}

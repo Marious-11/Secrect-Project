@@ -8,7 +8,13 @@ function TitleCustom({
   justify: "start" | "center" | "end";
 }) {
   return (
-    <section className={`w-[70%] flex text-3xl font-semibold border-b-4 border-black pb-1  justify-${justify}`}>{title}</section>
+    <section
+      className={`w-full ${
+        justify == "center" && "items-center" }  mx-auto  flex text-3xl font-semibold flex-col gap-4 pb-1 justify-${justify}`}
+    >
+      <p>{title}</p>
+      <div className="h-1 w-[70%] bg-black"></div>
+    </section>
   );
 }
 

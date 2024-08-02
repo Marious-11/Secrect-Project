@@ -13,6 +13,7 @@ import {
 import { FaCartShopping } from "react-icons/fa6";
 import { FaSearch } from "react-icons/fa";
 import Link from "next/link";
+import { DrawerHeaderComponent } from "./DrawerHeader";
 
 const isLogin = [
   { title: "Profile" },
@@ -21,19 +22,25 @@ const isLogin = [
 ];
 function HeaderComponent() {
   return (
-    <section className="fixed top-0 w-full bg-white backdrop-blur-sm shadow-md">
+    <section className="fixed top-0 w-full bg-white/80 backdrop-blur-sm z-[9999]">
       <header className="container flex justify-between items-center">
-        <Image src={logo.src} alt="" width={75} height={50} />
-        <section className="flex justify-center gap-5">
+        <div className="flex  items-center">
+          <Image src={logo.src} alt="" width={75} height={50} />
+          <section className="lg:hidden">
+            <DrawerHeaderComponent />
+          </section>
+        </div>
+        <section className="lg:flex justify-center w-full gap-5 hidden ">
           <NavigationMenuDemo />
         </section>
+
         <section className="flex justify-end gap-2">
           <Button variant={"ghost"}>
-            <FaSearch size={24} />
+            <FaSearch size={24} color="black" />
           </Button>
           <Button variant={"ghost"}>
             <Link href={"/cart"}>
-              <FaCartShopping size={24} />
+              <FaCartShopping size={24} color="black" />
             </Link>
           </Button>
           <DropdownMenu>
