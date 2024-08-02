@@ -19,7 +19,15 @@ export default function Home() {
       </div>
 
       <BannerGrid cols={2} />
-      <CategoryGrid />
+      <div className="flex flex-col gap-5">
+        <TitleCustom justify="start" title="Categories for men" />
+        <CategoryGrid />
+      </div>
+      <div className="flex flex-col gap-5">
+        <TitleCustom justify="start" title="Categories for lady" />
+        <CategoryGrid />
+      </div>
+      
     </section>
   );
 }

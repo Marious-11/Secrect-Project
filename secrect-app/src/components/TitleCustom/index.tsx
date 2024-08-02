@@ -13,7 +13,7 @@ function TitleCustom({
         justify == "center" && "items-center" }  mx-auto  flex text-3xl font-semibold flex-col gap-4 pb-1 justify-${justify}`}
     >
       <p>{title}</p>
-      <div className="h-1 w-[70%] bg-black"></div>
+      <div className="h-1 w-[40%] bg-black"></div>
     </section>
   );
 }

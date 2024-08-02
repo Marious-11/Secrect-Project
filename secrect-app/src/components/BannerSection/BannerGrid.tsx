@@ -19,7 +19,7 @@ function BannerGrid({ cols = 2 }: IProps) {
               alt=""
               width={500}
               height={300}
-              className="w-full h-[500px] rounded-lg hover:scale-105 transition-all duration-300 object-cover"
+              className="w-full h-[500px] rounded-2xl hover:scale-105 transition-all duration-300 object-cover"
             />
           </div>
           <div className="px-5 flex flex-col gap-5 lg:gap-10">
