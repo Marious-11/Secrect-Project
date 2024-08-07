@@ -1,6 +1,12 @@
-import { Client } from "appwrite";
+import { Client, Databases } from "appwrite";
+const baseUrl = process.env.BASE_URL
+const project_id = process.env.PROJECT_ID
+
 const client = new Client();
 
 client
-  .setEndpoint("https://cloud.appwrite.io/v1")
-  .setProject("66ac5ae40031c6d08383");
+  .setEndpoint(baseUrl as string)
+  .setProject(project_id as string);
+
+const database = new Databases(client);
+export { database, client };

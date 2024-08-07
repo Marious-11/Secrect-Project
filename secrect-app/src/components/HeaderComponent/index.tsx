@@ -22,10 +22,16 @@ const isLogin = [
 ];
 function HeaderComponent() {
   return (
-    <section className="fixed top-0 w-full bg-white/80 backdrop-blur-sm z-[9999]">
+    <section className="fixed top-0 w-full bg-white/80 backdrop-blur-sm z-[9999] py-2">
       <header className="container flex justify-between items-center">
-        <div className="flex  items-center">
-          <Image src={logo.src} alt="" width={75} height={50} />
+        <div className="flex  items-center ">
+          {/* <Image src={logo.src} alt="" width={200} height={100} className="w-[200px] h-[50px] object-cover"  /> */}
+          <Link
+            href={"/"}
+            className="text-3xl  font-semibold  hover:transition-all duration-500 ease-linear text-black hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-pink-500 hover:to-violet-500"
+          >
+            Marious
+          </Link>
           <section className="lg:hidden">
             <DrawerHeaderComponent />
           </section>

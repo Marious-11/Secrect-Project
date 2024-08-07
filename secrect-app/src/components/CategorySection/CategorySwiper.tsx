@@ -5,7 +5,8 @@ import "swiper/css";
 import Image from "next/image";
 import banner from "@/assets/img/product.png";
 import Link from "next/link";
-function CategorySwiper() {
+import { Models } from "appwrite";
+function CategorySwiper({data}:{data:Models.Document[]}) {
   return (
     <section>
       <Swiper
@@ -32,8 +33,8 @@ function CategorySwiper() {
           disableOnInteraction: false,
         }}
       >
-        {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((item, index) => (
-          <SwiperSlide key={item}>
+        {data.map((item, index) => (
+          <SwiperSlide key={index}>
             <Link
               href={"/"}
               className="flex justify-center items-center bg-white rounded-lg flex-col gap-4 hover:bg-slate-100 p-3 transition-all duration-200"
@@ -45,7 +46,7 @@ function CategorySwiper() {
                 height={100}
                 className="w-full h-[150px] object-cover rounded-lg"
               />
-              <p>T-Shirt</p>
+              <p>{item.Name}</p>
             </Link>
           </SwiperSlide>
         ))}

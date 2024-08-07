@@ -5,6 +5,7 @@ import product from "@/assets/img/product.png";
 import { Button } from "../ui/button";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
+import promo from '@/assets/img/promotion.jpg'
 interface IProps {
   cols?: 2 | 3 | 4 | number;
 }
@@ -52,19 +53,19 @@ function BannerGrid({ cols = 2 }: IProps) {
           }}
         >
           <SwiperSlide>
-            <Image src={product.src} alt="" width={500} height={200} className="w-full h-[200px] object-cover" />
+            <Image src={promo.src} alt="" width={500} height={200} className="w-full h-[200px] object-cover" />
           </SwiperSlide>
           <SwiperSlide>
-            <Image src={product.src} alt="" width={500} height={200} className="w-full h-[200px] object-cover" />
+            <Image src={promo.src} alt="" width={500} height={200} className="w-full h-[200px] object-cover" />
           </SwiperSlide>
           <SwiperSlide>
-            <Image src={product.src} alt="" width={500} height={200} className="w-full h-[200px] object-cover" />
+            <Image src={promo.src} alt="" width={500} height={200} className="w-full h-[200px] object-cover" />
           </SwiperSlide>
           <SwiperSlide>
-            <Image src={product.src} alt="" width={500} height={200} className="w-full h-[200px] object-cover" />
+            <Image src={promo.src} alt="" width={500} height={200} className="w-full h-[200px] object-cover" />
           </SwiperSlide>
           <SwiperSlide>
-            <Image src={product.src} alt="" width={500} height={200} className="w-full h-[200px] object-cover" />
+            <Image src={promo.src} alt="" width={500} height={200} className="w-full h-[200px] object-cover" />
           </SwiperSlide>
         </Swiper>
       )}

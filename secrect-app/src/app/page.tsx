@@ -1,33 +1,53 @@
 import BannerComponent from "@/components/BannerSection/BannerComponent";
 import BannerGrid from "@/components/BannerSection/BannerGrid";
-import CardItem from "@/components/Card/CardItem";
+import BannerInfinity from "@/components/BannerSection/BannerInfinity";
 import CategoryGrid from "@/components/CategorySection/CategoryGrid";
 import CategorySwiper from "@/components/CategorySection/CategorySwiper";
 import TitleCustom from "@/components/TitleCustom";
+import { database } from "../../appwrite";
 
-export default function Home() {
+export default async function Home() {
+  const baseUrl = process.env.DATABASE_ID;
+  const categoryID = process.env.CATEGORY_TABLE_ID;
+  const productsID = process.env.PRODUCT_TABLE_ID;
+
+  // call api
+  const category = await database.listDocuments(
+    baseUrl as string,
+    categoryID as string
+  );
+  const products = await database.listDocuments(
+    baseUrl as string,
+    productsID as string
+  );
+  // 
+
   return (
-    <section className="mt-20 container flex flex-col gap-10">
+    <section className="my-20 container flex flex-col gap-10 ">
       <BannerComponent />
+
       <div className="">
         <BannerGrid cols={3} />
       </div>
 
       <div className="flex flex-col gap-5 ">
         <TitleCustom justify="center" title="Bộ sưu tập" />
-        <CategorySwiper />
+        <CategorySwiper data={category.documents} />
       </div>
 
       <BannerGrid cols={2} />
       <div className="flex flex-col gap-5">
         <TitleCustom justify="start" title="Categories for men" />
-        <CategoryGrid />
+        <CategoryGrid data={products.documents} />
       </div>
       <div className="flex flex-col gap-5">
         <TitleCustom justify="start" title="Categories for lady" />
-        <CategoryGrid />
+        <CategoryGrid data={products.documents} />
       </div>
-      
+      <div className="flex flex-col gap-5">
+        <TitleCustom justify="center" title="Khách hàng hợp tác" />
+        <BannerInfinity />
+      </div>
     </section>
   );
 }
