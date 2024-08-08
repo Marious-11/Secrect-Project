@@ -37,11 +37,11 @@ export default async function Home() {
 
       <BannerGrid cols={2} />
       <div className="flex flex-col gap-5">
-        <TitleCustom justify="start" title="Categories for men" />
+        <TitleCustom justify="start" title="Producs for men" />
         <CategoryGrid data={products.documents} />
       </div>
       <div className="flex flex-col gap-5">
-        <TitleCustom justify="start" title="Categories for lady" />
+        <TitleCustom justify="start" title="Products for lady" />
         <CategoryGrid data={products.documents} />
       </div>
       <div className="flex flex-col gap-5">

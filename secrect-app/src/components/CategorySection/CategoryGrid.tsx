@@ -1,7 +1,11 @@
 import React, { Fragment } from "react";
 import CardItem from "../Card/CardItem";
 import { Models } from "appwrite";
-import { IProducts } from "@/interface/product";
+
+
+const dataDemo= [
+  {id:1}
+]
 
 function CategoryGrid({ data }: { data: Models.Document[] }) {
   return (
