@@ -3,7 +3,7 @@ import React from "react";
 
 function page() {
   return ( 
-    <section className="container min-h-[70vh]">
+    <section className="container min-h-[70vh] ">
       <TableRender />
     </section>
   );

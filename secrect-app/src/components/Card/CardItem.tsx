@@ -7,7 +7,7 @@ import { Models } from "appwrite";
 function CardItem({ data }: { data: Models.Document }) {
   return (
     <Link
-      href={`/products/${data.category}/${data.slug}`}
+      href={`/products/${data.category}/${data.$id}`}
       className="h-[300px]   group rounded-2xl flex flex-col gap-1 relative"
     >
       <div className=" w-full h-[200px] overflow-hidden rounded-xl">
@@ -34,7 +34,7 @@ function CardItem({ data }: { data: Models.Document }) {
           </p>
         </div>
       </div>
-      <div className="absolute  size-[60px] rounded-tr-full  rounded-br-full bg-white top-[170px] flex justify-center items-center transition-all duration-300 ease-linear">
+      <div className="absolute  size-[60px] rounded-tr-full  rounded-br-full bg-white border-r-2 border-black border-b-2 border-t-2 top-[170px] flex justify-center items-center transition-all duration-300 ease-linear">
         <FaCartShopping
           size={24}
           className=" transition-all duration-300 ease-in-out"

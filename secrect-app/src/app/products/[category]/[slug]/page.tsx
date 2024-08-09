@@ -12,40 +12,45 @@ const Data = {
   price_in_sale: 100000,
 };
 
-async function page() {
-    const productsID = process.env.PRODUCT_TABLE_ID;
-    const baseUrl = process.env.DATABASE_ID;
+async function page({ params }: { params: { slug: string } }) {
+  const productsID = process.env.PRODUCT_TABLE_ID;
+  const baseUrl = process.env.DATABASE_ID;
 
-    // const productBySlug = await database.getDocument(baseUrl as string, productsID as string, "65485222222222222222");
+  const productBySlug = await database.getDocument(
+    baseUrl as string,
+    productsID as string,
+    params.slug
+  );
+
   return (
     <section className="container my-32">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
         <div className="flex flex-col gap-5">
           <p className="text-xl md:text-2xl lg:text-3xl font-semibold">
-            {Data.title}
+            {productBySlug.Name}
           </p>
           <div className="flex gap-5 items-center">
             <p className="text-2xl font-semibold">
-              {Data.price_in_sale.toLocaleString("VI")} đ
+              {productBySlug.price_in_promotion.toLocaleString("VI")} đ
             </p>
             <p className="text-md font-light line-through">
-              {Data.price.toLocaleString("VI")} đ
+              {productBySlug.price.toLocaleString("VI")} đ
             </p>
           </div>
           <div className="flex gap-5">
             <Button variant={"outline"} size={"lg"}>
               Buy Now
-            </Button>{" "}
+            </Button>
             <Button size={"lg"}>Add to cart</Button>
           </div>
         </div>
         <div className="">
           <Image
-            src={product.src}
+            src={productBySlug.image ?? product.src}
             alt=""
             width={1000}
             height={500}
-            className="w-full "
+            className="w-full rounded-lg"
           />
         </div>
       </div>

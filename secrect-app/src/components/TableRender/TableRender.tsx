@@ -50,13 +50,13 @@ const data = [
 
 function TableRender() {
   return (
-    <section className="flex flex-col gap-5 my-20 py-10">
-      <div className="grid grid-cols-1 md:grid-cols-3 border-b-2 pb-5">
+    <section className="flex flex-col gap-5 mt-20 py-10 relative ">
+      <div className="grid grid-cols-1 md:grid-cols-3 border rounded-[20px] p-5">
         <div className="flex items-center gap-2">
           <Checkbox />
           <p>All</p>
         </div>
-        <div className="col-span-2 grid grid-cols-4 items-center text-center text-[14px]">
+        <div className="col-span-2 md:grid grid-cols-4 items-center text-center text-[14px] hidden ">
           <p className="">Price</p>
           <p>Count</p>
           <p>Amount</p>
@@ -68,7 +68,7 @@ function TableRender() {
           </div>
         </div>
       </div>
-      <div className="flex flex-col gap-5">
+      <div className="flex flex-col gap-5 border rounded-[20px] p-5">
         {data.map((item, index) => (
           <div key={index} className={`grid grid-cols-1 md:grid-cols-3 ${index !=0 && "border-t-2 pt-5"}`}>
             <div className="flex items-center gap-2">
@@ -87,7 +87,7 @@ function TableRender() {
                   </p>
                   <div className="flex border rounded-xl items-center w-[120px] h-[30px] md:hidden px-2">
                     <FiMinus size={18} className="w-[24px]" />
-                    <Input className="border-none outline-none h-[30px] text-center" />
+                    <Input className="border-none outline-none h-[30px] text-center "  />
                     <FiPlus size={18} className=" w-[24px] " />
                   </div>
                 </div>
@@ -117,6 +117,13 @@ function TableRender() {
             </div>
           </div>
         ))}
+      </div>
+
+
+      <div className="sticky bottom-0 w-full border h-[80px] rounded-[20px] bg-white flex justify-between px-5 items-center">
+
+        <p>Total: 1234</p>
+        <Button>Checkout</Button>
       </div>
     </section>
   );

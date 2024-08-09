@@ -20,7 +20,7 @@ export default async function Home() {
     baseUrl as string,
     productsID as string
   );
-  // 
+  //
 
   return (
     <section className="my-20 container flex flex-col gap-10 ">
