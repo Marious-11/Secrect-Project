@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { Checkbox } from "../ui/checkbox";
 import Image from "next/image";
 import { RiDeleteBin6Line } from "react-icons/ri";
 import { Button } from "../ui/button";
 import { Input } from "../ui/input";
 import { FiPlus, FiMinus } from "react-icons/fi";
+import InputQuality from "../Core/inputQuality";
 const data = [
   {
     id: "m5gr84i9",
@@ -48,7 +49,9 @@ const data = [
   },
 ];
 
-function TableRender() {
+function TableRender({ data }: { data: any[] }) {
+  console.log(data);
+
   return (
     <section className="flex flex-col gap-5 mt-20 py-10 relative ">
       <div className="grid grid-cols-1 md:grid-cols-3 border rounded-[20px] p-5">
@@ -70,7 +73,12 @@ function TableRender() {
       </div>
       <div className="flex flex-col gap-5 border rounded-[20px] p-5">
         {data.map((item, index) => (
-          <div key={index} className={`grid grid-cols-1 md:grid-cols-3 ${index !=0 && "border-t-2 pt-5"}`}>
+          <div
+            key={index}
+            className={`grid grid-cols-1 md:grid-cols-3 ${
+              index != 0 && "border-t-2 pt-5"
+            }`}
+          >
             <div className="flex items-center gap-2">
               <Checkbox />
               <Image
@@ -81,14 +89,12 @@ function TableRender() {
               />
               <div className="flex justify-between w-full gap-5">
                 <div className="flex flex-col gap-1">
-                  <p className="text-[14px] line-clamp-1">{item.name}</p>
+                  <p className="text-[14px] line-clamp-1">{item.title}</p>
                   <p className="text-[14px] font-light md:hidden">
-                    {item.amount}
+                    {item.price}
                   </p>
                   <div className="flex border rounded-xl items-center w-[120px] h-[30px] md:hidden px-2">
-                    <FiMinus size={18} className="w-[24px]" />
-                    <Input className="border-none outline-none h-[30px] text-center "  />
-                    <FiPlus size={18} className=" w-[24px] " />
+                    <InputQuality defalutValue={Number(item.count)} size="md" />
                   </div>
                 </div>
                 <div className="">
@@ -101,11 +107,11 @@ function TableRender() {
             </div>
             {/*  */}
             <div className="hidden md:grid md:grid-cols-4 items-center text-center col-span-2">
-              <p className="text-[14px] ">{item.amount}</p>
-              <div className="flex border rounded-xl items-center justify-center w-full h-[40px] px-2">
-                <FiMinus size={18} className="w-[24px]" />
-                <Input className="border-none outline-none h-[30px] text-center" />
-                <FiPlus size={18} className=" w-[24px] " />
+              <p className="text-[14px] ">
+                {Number(item.price).toLocaleString("VI")} Đ
+              </p>
+              <div className="flex items-center justify-center w-full h-[40px] px-2">
+                <InputQuality defalutValue={Number(item.count)} size="md" id={item.$id} />
               </div>
               <p className="text-[14px]">{item.amount}</p>
               <div className="flex justify-end w-full">
@@ -119,9 +125,7 @@ function TableRender() {
         ))}
       </div>
 
-
       <div className="sticky bottom-0 w-full border h-[80px] rounded-[20px] bg-white flex justify-between px-5 items-center">
-
         <p>Total: 1234</p>
         <Button>Checkout</Button>
       </div>

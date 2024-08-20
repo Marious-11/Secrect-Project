@@ -5,6 +5,7 @@ import CategoryGrid from "@/components/CategorySection/CategoryGrid";
 import CategorySwiper from "@/components/CategorySection/CategorySwiper";
 import TitleCustom from "@/components/TitleCustom";
 import { database } from "../../appwrite";
+import Banner3DSection from "@/components/BannerSection/Banner3DSection";
 
 export default async function Home() {
   const baseUrl = process.env.DATABASE_ID;
@@ -24,6 +25,7 @@ export default async function Home() {
 
   return (
     <section className="my-20 container flex flex-col gap-10 ">
+      
       <BannerComponent />
 
       <div className="">

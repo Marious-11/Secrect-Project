@@ -12,7 +12,7 @@ function CardItem({ data }: { data: Models.Document }) {
     >
       <div className=" w-full h-[200px] overflow-hidden rounded-xl">
         <Image
-          src={banner.src}
+          src={data.image ?? banner.src}
           //data.image ?? banner.src
           alt=""
           width={200}

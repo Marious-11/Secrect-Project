@@ -1,8 +1,25 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-  
+/* Hides the up and down arrows for input[type=number] in most browsers */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
 
-.my-wipper{
-    z-index: 50;
+/* For Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+/* body{
+    background-image: url(../assets/img/background.webp);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-blend-mode: color-burn;
+} */
+
+.my-wipper {
+  z-index: 50;
 }

@@ -4,6 +4,7 @@ import Image from "next/image";
 import product from "@/assets/img/product.png";
 import TitleCustom from "@/components/TitleCustom";
 import { database } from "../../../../../appwrite";
+import InputQuality from "@/components/Core/inputQuality";
 const Data = {
   title: "Lorem ipsum dolor sit, amet consectetur adipisicing elit.",
   description:
@@ -37,6 +38,7 @@ async function page({ params }: { params: { slug: string } }) {
               {productBySlug.price.toLocaleString("VI")} đ
             </p>
           </div>
+          <InputQuality size={'md'} defalutValue={1} />
           <div className="flex gap-5">
             <Button variant={"outline"} size={"lg"}>
               Buy Now

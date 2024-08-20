@@ -37,7 +37,7 @@ function CategorySwiper({data}:{data:Models.Document[]}) {
           <SwiperSlide key={index}>
             <Link
               href={"/"}
-              className="flex justify-center items-center bg-white rounded-lg flex-col gap-4 hover:bg-slate-100 p-3 transition-all duration-200"
+              className="flex justify-center items-center   rounded-lg flex-col gap-4 hover:bg-slate-100 p-3 transition-all duration-200"
             >
               <Image
                 src={banner.src}
